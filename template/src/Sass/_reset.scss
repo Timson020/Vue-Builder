@@ -1,0 +1,49 @@
+html,body{
+	font:{
+		size: 16px;
+		family: 'Microsoft YaHei','Arial','Helvetica','Tahoma';
+	};
+};
+
+html,body,article,section,div,
+p,h1,h2,h3,h4,h5,h6,
+ul,ol,li,
+header,footer,main,address,menu,nav,
+button,input,output,
+aside,details,figcaption,figure,hgroup
+summary,audio,video{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+};
+
+div,article,section,aside,details,figcaption,figure,header,footer,hgroup,main,menu,nav,summary{
+  display: block;
+};
+
+input,button{
+	-webkit-appearance: none;
+	border: 1px solid gray;
+	border-radius: 6px;
+	vertical-align:middle;
+	outline: none;
+	&:focus{
+		-webkit-appearance: none;
+		outline: none;
+	};
+};
+
+img{
+	vertical-align: middle;
+	border: none;
+};
+
+a{
+	color: inherit;
+	text-decoration: none;
+};
+
+li{
+	list-style: none;
+};
