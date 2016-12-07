@@ -1,6 +1,5 @@
 {
 	"presets": [
-		["es2015", "stage-2"]
-	],
-	"plugins": ["transform-object-assign", "transform-object-rest-spread", "transform-async-to-generator"]
+		["es2015"]
+	]
 }
