@@ -1,5 +1,15 @@
 {
 	"presets": [
-		["es2015"]
+		["es2015", "stage-3"]
+	],
+	"plugins": [
+		"transform-async-to-generator", ["transform-runtime", {
+			"polyfill": false,
+			"regenerator": true
+		}],
+		["component", [{
+			"libraryName": "mint-ui",
+			"style": true
+		}]]
 	]
 }

@@ -1,5 +1,1 @@
-let gitter = {
-
-};
-
-export default gitter;
+export default {}

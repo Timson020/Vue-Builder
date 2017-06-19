@@ -1,5 +1,1 @@
-let mutations = {
-
-};
-
-export default mutations;
+export default {}

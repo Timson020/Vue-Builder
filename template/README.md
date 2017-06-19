@@ -1,9 +1,17 @@
-# Vue-For-Timson
-This is a generator for vue & webpack
+# {{name}}
 
-## How to use 
-* ``` npm run build ```
-It is generate a production app
+> {{description}}
 
-* ``` npm run dev ```
-It is run in webpack-dev-server
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+

@@ -1,3 +1,35 @@
 {
-	
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es6": true,
+	},
+	"plugins": ["html"],
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"curly": 0,
+		"no-tabs": 0,
+		"no-var": 1,
+		"no-alert": 1,
+		"no-unused-vars": 2,
+		"no-const-assign": 2,
+		"no-console": [2, {
+			"allow": ["warn", "error", "info"],
+		}, ],
+		"no-mixed-spaces-and-tabs": 2,
+		"one-var": 0,
+		"quotes": [2, "single"],
+		"semi": [2, "never"],
+		"no-debugger": 2,
+	}
 }

@@ -1,45 +1,42 @@
-let path = require('path');
-let webpack = require('webpack');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
 
-// 自定义开发webpack.js
-let webpackBuild = require('./src/Config/WebpackConfig/webpack.config.build.js');
-let webpackDev = require('./src/Config/WebpackConfig/webpack.config.dev.js');
-
-let config = {
-	entry: {
-		app: './src/app.js',
-		vendor: ['vue']
-	},
+module.exports = {
+	entry: './src/main.js',
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		publicPath: './dist/',
-		filename: '[name].js'
+		publicPath: '/dist/',
+		filename: 'build.js'
 	},
 	module: {
-		rlues: [{
-			test: /.vue$/,
+		rules: [{
+			test: /\.vue$/,
 			loader: 'vue-loader',
 			options: {
 				loaders: {
-					css: ExtractTextPlugin.extract({
-						loader: 'css-loader',
-						fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
-					})
+					// Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+					// the "scss" and "sass" values for the lang attribute to the right configs here.
+					// other preprocessors should work out of the box, no loader config like this necessary.
+					'scss': 'vue-style-loader!css-loader!sass-loader',
+					'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
 				}
+				// other vue-loader options go here
 			}
 		}, {
-			test: /.js$/,
+			test: /\.js$/,
 			loader: 'babel-loader',
 			exclude: /node_modules/
 		}, {
-			test: /.css$/,
+			test: /\.css$/,
 			loader: 'style-loader!css-loader'
 		}, {
-			test: /.(scss|sass)$/,
+			test: /\.(scss|sass)$/,
 			loader: 'style-loader!css-loader!sass-loader'
 		}, {
-			test: /.(jpg|jpeg|png|gif|svg)$/,
+			test: /\.(eot|ttf|woff|woff2)$/,
+			loader: 'file-loader'
+		}, {
+			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
 				name: '[name].[ext]?[hash]'
@@ -47,43 +44,38 @@ let config = {
 		}]
 	},
 	resolve: {
-		extensions: ['', '.vue', '.js', '.css', '.scss', '.sass'],
 		alias: {
-			'vue$': 'vue/dist/vue.common.js'
-		}
+			'vue$': 'vue/dist/vue.esm.js'
+		},
+		extensions: ['.js', '.json', '.vue', '.scss', '.css']
 	},
 	devServer: {
-		contentBase: "./src", // 本地服务器所加载的页面所在的目录
-		historyApiFallback: true, // 不跳转
-		noInfo: true, // 
-		colors: true // 终端中输出结果为彩色
+		historyApiFallback: true,
+		noInfo: true
+	},
+	performance: {
+		hints: false
 	},
 	devtool: '#eval-source-map'
-};
+}
 
-if (process.env.env === 'pro') {
-	config.devtool = '#source-map';
-	config.plugins = (config.plugins || []).concat([
-		// 
+if (process.env.NODE_ENV === 'production') {
+	module.exports.devtool = '#source-map'
+		// http://vue-loader.vuejs.org/en/workflow/production.html
+	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: '"production"'
 			}
 		}),
-		// js代码压缩
 		new webpack.optimize.UglifyJsPlugin({
 			sourceMap: true,
 			compress: {
 				warnings: false
 			}
 		}),
-		// 
 		new webpack.LoaderOptionsPlugin({
 			minimize: true
-		}),
-		// 样式分开打包
-		new ExtractTextPlugin("[name].css")
-	]);
-};
-
-module.exports = config;
+		})
+	])
+}

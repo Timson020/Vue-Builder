@@ -1,11 +1,11 @@
-import state from './State';
-import getters from './Getters';
-import mutations from './Mutations';
-import actions from './Mutations';
+import state from './Store'
+import mutations from './Mutations'
+import getters from './Getters'
+import actions from './Actions'
 
 export default {
 	state,
-	getters,
 	mutations,
-	actions
-};
+	getters,
+	actions,
+}
