@@ -12,6 +12,7 @@
 	- modules
 - vue-router
 - vue-resource
+- vuex-persistedstate
 - webpack
 - eslint
 - babel
