@@ -6,7 +6,10 @@ import createPersistedState from 'vuex-persistedstate'
 
 const setHandle = (key, state) => localStorage.setItem(key, JSON.stringify(state))
 
-const getHandle = (key) => JSON.parse(localStorage[key])
+const getHandle = (key) => {
+	if (!localStorage[key]) { return {} }
+	return JSON.parse(localStorage[key])
+}
 
 export default {
 	state,

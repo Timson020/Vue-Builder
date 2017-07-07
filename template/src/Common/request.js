@@ -16,7 +16,7 @@ async function ajax(url, body, method = 'post') {
 		return { code: 400, data: null, msg: err }
 	}
 	return { code: 200, data: _res, msg: '' }
-};
+}
 
 request.api = {
 	signIn: host + 'signIn',
