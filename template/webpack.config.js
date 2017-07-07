@@ -44,10 +44,10 @@ module.exports = {
 		}]
 	},
 	resolve: {
-		extensions: ['.js', '.json', '.vue', '.scss', '.css']
+		extensions: ['.js', '.json', '.vue', '.scss', '.css'],
 		alias: {
 			'vue$': 'vue/dist/vue.esm.js'
-		},
+		}
 	},
 	devServer: {
 		historyApiFallback: true,
