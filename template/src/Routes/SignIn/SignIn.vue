@@ -5,6 +5,8 @@
 </template>
 
 <script type="text/javascript">
+	import { } from './module'
+	
 	export default{
 		name: 'SignIn',
 		data() {

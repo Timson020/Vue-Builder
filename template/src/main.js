@@ -5,6 +5,8 @@ import Resource from 'vue-resource'
 
 import { vuex, routers } from './Config'
 
+import './Scss/global'
+
 Vue.use(Vuex)
 Vue.use(Router)
 Vue.use(Resource)
