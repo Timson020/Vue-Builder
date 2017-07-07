@@ -1,3 +1,49 @@
+@charset 'utf-8';
 @import "_Base";
 
+// 原子类开始
 @include TimsonBaseClass();
+
+@for $i from 1 through 10 {
+	.flex-#{$i} { flex: $i; }
+}
+
+$flex-dir: column,row;
+@each $item in $flex-dir {
+	.flex-#{$item} {
+		flex-direction:$item;
+	}
+}
+
+@for $i from 1 through 10 {
+	.padding-#{$i} { padding: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.padding-top-#{$i} { padding-top: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.padding-bottom-#{$i} { padding-bottom: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.padding-left-#{$i} { padding-left: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.padding-right-#{$i} { padding-right: .05rem * $i; }
+}
+
+@for $i from 1 through 10 {
+	.margin-#{$i} { margin: .1rem * $i; }
+}
+@for $i from 1 through 10 {
+	.margin-top-#{$i} { margin-top: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.margin-bottom-#{$i} { margin-bottom: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.margin-left-#{$i} { margin-left: .05rem * $i; }
+}
+@for $i from 1 through 10 {
+	.margin-right-#{$i} { margin-right: .05rem * $i; }
+}
+// 原子类结束
