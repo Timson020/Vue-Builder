@@ -1,1 +1,1 @@
-import { request, utils, validations } from '../../Common'
+import { request, utils, validations } from '@/Common'

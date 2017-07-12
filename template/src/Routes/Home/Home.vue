@@ -13,6 +13,10 @@
 			const _res = {}
 			return _res
 		},
+		// 组件
+		components:{},
+		// 函数
+		methods:{},
 		// 计算
 		computed: {},
 		// 过滤

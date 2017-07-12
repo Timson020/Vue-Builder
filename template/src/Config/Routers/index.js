@@ -1,4 +1,4 @@
-import { Home, SignIn, SignUp } from '../../Routes'
+import { Home, SignIn, SignUp } from '@/Routes'
 
 const routes = [{
 	path: '/',
