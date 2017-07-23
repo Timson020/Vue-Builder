@@ -17,6 +17,8 @@
 		components:{},
 		// 函数
 		methods:{},
+		// 监听
+		watch: {},
 		// 计算
 		computed: {},
 		// 过滤
