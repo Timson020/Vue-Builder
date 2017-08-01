@@ -1,4 +1,4 @@
-# TemplateForVue
+# TemplateForVue 1.0.0
 
 这个是一个定制版的模版
 

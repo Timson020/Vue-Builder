@@ -1,6 +1,12 @@
 @charset 'utf-8';
 @import "_Base";
 
+html,body, #app{
+	$windowSize: 100%
+	width: $windowSize;
+	height: $windowSize;
+}
+
 // 原子类开始
 @include TimsonBaseClass();
 
