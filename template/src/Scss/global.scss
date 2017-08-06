@@ -2,7 +2,7 @@
 @import "_Base";
 
 html,body, #app{
-	$windowSize: 100%
+	$windowSize: 100%;
 	width: $windowSize;
 	height: $windowSize;
 }

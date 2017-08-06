@@ -16,6 +16,8 @@
 - webpack
 - eslint
 - babel
+- es2015
+- async/await
 
 ## 使用方法
 
