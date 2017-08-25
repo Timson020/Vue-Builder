@@ -1,9 +1,9 @@
-import request from './request'
+import services from './services'
 import utils from './utils'
 import validations from './validations'
 
 export {
-	request,
+	services,
 	utils,
 	validations
 }
