@@ -1,9 +1,9 @@
-var fs = require('fs')
-var path = require('path')
-var argvs = process.argv
+const fs = require('fs')
+const path = require('path')
+const argvs = process.argv
 
-var type = argvs[2]
-var name = argvs[3]
+const type = argvs[2]
+let name = argvs[3]
 
 name = name.substr(0, 1).toUpperCase() + name.substr(1)
 
@@ -48,12 +48,12 @@ function generate(tempDir, genPath) {
 
 function mkdir(dir) {
 	dir = path.normalize(dir)
-	console.log('make folder, path:' + dir)
+	console.info('make folder, path:' + dir)
 	fs.existsSync(dir) || fs.mkdirSync(dir)
 }
 
 function mkfile(dir, content) {
 	dir = path.normalize(dir)
-	console.log('make folder, path:' + dir)
+	console.info('make folder, path:' + dir)
 	fs.writeFileSync(dir, content)
 }
