@@ -1,9 +1,9 @@
-import services from './services'
-import utils from './utils'
-import validations from './validations'
+import Services from './Services'
+import Utils from './Utils'
+import Validations from './Validations'
 
 export {
-	services,
-	utils,
-	validations
+	Services,
+	Utils,
+	Validations
 }

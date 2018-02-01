@@ -1,5 +1,6 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
+
 const argvs = process.argv
 
 const type = argvs[2]
@@ -14,12 +15,10 @@ const options = {
 	}
 }
 
-if (!options[type]) return
+if (!options[type]) throw new Error('type is none')
 
 let tDir = options[type].tempPath
 let gPath = options[type].path + name + '/'
-
-generate(tDir, gPath)
 
 function generate(tempDir, genPath) {
 	mkdir(genPath)
@@ -57,3 +56,5 @@ function mkfile(dir, content) {
 	console.info('make folder, path:' + dir)
 	fs.writeFileSync(dir, content)
 }
+
+generate(tDir, gPath)
