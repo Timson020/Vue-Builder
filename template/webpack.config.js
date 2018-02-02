@@ -93,4 +93,8 @@ if (isProd) {
 			}
 		})
 	])
+} else {
+	module.exports.plugins = (module.exports.plugins || []).concat([
+		new webpack.HotModuleReplacementPlugin()
+	])	
 }
