@@ -62,7 +62,9 @@ module.exports = {
 	},
 	devServer: {
 		historyApiFallback: true,
-		noInfo: true
+		noInfo: true,
+		hot: true,
+		inline: true	
 	},
 	performance: {
 		hints: false
@@ -88,7 +90,7 @@ if (isProd) {
 				removeComments: true,
 				collapseWhitespace: true,
 				removeAttributeQuotes: true
-			},
+			}
 		})
 	])
 }

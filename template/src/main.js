@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import Router from 'vue-router'
 import Resource from 'vue-resource'
 
-import { vuex, routers } from './Config'
+import { vuex, routers } from './config'
 
-import './Scss/global'
+import './scss/global'
 
 Vue.use(Vuex)
 Vue.use(Router)

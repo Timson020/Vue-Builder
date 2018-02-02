@@ -1,1 +1,1 @@
-import { services, utils, validations } from '@/Common'
+import { Utils, Validations, Services } from '@/common'

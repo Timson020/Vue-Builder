@@ -12,8 +12,18 @@ const options = {
 	'r': {
 		path: __dirname + '/../../src/routes/',
 		tempPath: __dirname + '/route.temp/'
+	},
+	'c': {
+		path: __dirname + '/../../src/components/',
+		tempPath: __dirname + '/component.temp/'
 	}
 }
+
+const Reg = new RegExp('Templates')
+Reg.global = true
+
+const reg = new RegExp('templates')
+reg.global = true
 
 if (!options[type]) throw new Error('type is none')
 
@@ -27,12 +37,12 @@ function generate(tempDir, genPath) {
 		let stat = fs.statSync(tempDir + file)
 		if (stat.isFile()) {
 			let content = fs.readFileSync(tempDir + file).toString()
-			content = content.replace(/Templates/g, name).replace(/templates/g, name.toLowerCase())
+			content = content.replace(Reg, name).replace(reg, name.toLowerCase())
 			let suffix = file.substr(file.indexOf('.'), file.length)
 			let filename
-			if (/Templates/.test(file))
+			if (Reg.test(file))
 				filename = name + suffix
-			else if (/templates/.test(file))
+			else if (reg.test(file))
 				filename = name.toLowerCase() + suffix
 			else
 				filename = file

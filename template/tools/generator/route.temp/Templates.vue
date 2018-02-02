@@ -30,5 +30,7 @@
 </script>
 
 <style lang="scss">
-	
+	#Templates{
+
+	}
 </style>
