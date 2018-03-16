@@ -5,7 +5,7 @@
 </template>
 
 <script type="text/javascript">
-	import {  } from './components'
+	import {  } from '@/common'
 	import {  } from './module'
 
 	export default{
