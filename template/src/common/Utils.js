@@ -1,10 +1,6 @@
 const utils = {
-	// 版本
-	version: 'v1.0.0',
-	// 主题颜色
-	themeColor: '#ed604f',
 	// 请求
-	ajax
+	ajax,
 }
 
 async function ajax(url, body = {}, method = 'post') {
