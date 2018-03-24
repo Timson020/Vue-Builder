@@ -1,5 +1,5 @@
 <template>
-	<div id="Templates" class="Templates">
+	<div id="Templates-container" class="Templates-container">
 		Templates
 	</div>
 </template>
@@ -25,7 +25,7 @@
 		// 计算
 		computed: {},
 		// 过滤
-		filters: {}
+		filters: {},
 	}
 </script>
 
