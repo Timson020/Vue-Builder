@@ -28,7 +28,7 @@ npm install vue-cli -g
 
 初始化模版
 ```
-vue init Timson020/TemplateForVue ProjectName
+vue init Timson020/Vue-Bulider ProjectName
 ```
 
 ```
