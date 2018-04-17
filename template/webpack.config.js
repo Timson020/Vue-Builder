@@ -8,12 +8,12 @@ var isProd = process.env.NODE_ENV === 'production'
 module.exports = {
 	entry: {
 		build: './src/main.js',
-		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate']
+		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate'],
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		publicPath: isProd ? 'http://www.xxxx.com/' : '/dist/',
-		filename: 'js/[name].js?[hash]'
+		filename: 'js/[name].js?[hash]',
 	},
 	module: {
 		rules: [{
@@ -25,51 +25,51 @@ module.exports = {
 					// the "scss" and "sass" values for the lang attribute to the right configs here.
 					// other preprocessors should work out of the box, no loader config like this necessary.
 					'scss': 'vue-style-loader!css-loader!sass-loader',
-					'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-				}
+					'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+				},
 				// other vue-loader options go here
 			}
 		}, {
 			test: /\.js$/,
 			loader: 'babel-loader',
-			exclude: /node_modules/
+			exclude: /node_modules/,
 		}, {
 			test: /\.css$/,
-			loader: !isProd ? 'style-loader!css-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+			loader: !isProd ? 'style-loader!css-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
 		}, {
 			test: /\.(scss|sass)$/,
-			loader: !isProd ? 'style-loader!css-loader!sass-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' })
+			loader: !isProd ? 'style-loader!css-loader!sass-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' }),
 		}, {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'font/[name].[ext]?[hash]'
-			}
+				name: 'font/[name].[ext]?[hash]',
+			},
 		}, {
 			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'img/[name].[ext]?[hash]'
-			}
-		}]
+				name: 'img/[name].[ext]?[hash]',
+			},
+		}],
 	},
 	resolve: {
 		extensions: ['.js', '.json', '.vue', '.scss', '.css'],
 		alias: {
 			'@': path.resolve(__dirname, './src'),
-			'vue$': 'vue/dist/vue.esm.js'
-		}
+			'vue$': 'vue/dist/vue.esm.js',
+		},
 	},
 	devServer: {
 		historyApiFallback: true,
 		noInfo: true,
 		hot: true,
-		inline: true	
+		inline: true,
 	},
 	performance: {
-		hints: false
+		hints: false,
 	},
-	devtool: '#eval-source-map'
+	devtool: '#eval-source-map',
 }
 
 if (isProd) {
@@ -89,7 +89,7 @@ if (isProd) {
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
-				removeAttributeQuotes: true
+				removeAttributeQuotes: true,
 			}
 		})
 	])

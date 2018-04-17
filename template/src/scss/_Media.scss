@@ -2,7 +2,7 @@
   @media only screen and (min-width: $var + px), only screen and (min-device-width: $var + px){
     html,body{
       font:{
-        size: ($var / 375) * 16 + px;
+        size: ($var / 375) * 20 + px;
       }
     }
   }

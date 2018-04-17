@@ -19,6 +19,6 @@ export default {
 	plugins: [createPersistedState({
 		storage: localStorage,
 		getState: getHandle,
-		setState: setHandle
+		setState: setHandle,
 	})]
 }

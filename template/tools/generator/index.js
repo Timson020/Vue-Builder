@@ -12,13 +12,13 @@ const options = {
 	'r': {
 		path: __dirname + '/../../src/routes/',
 		tempPath: __dirname + '/route.temp/',
-		index: __dirname + '/../../src/routes/index.js'
+		index: __dirname + '/../../src/routes/index.js',
 	},
 	'c': {
 		path: __dirname + '/../../src/components/',
 		tempPath: __dirname + '/component.temp/',
-		index: __dirname + '/../../src/components/index.js'
-	}
+		index: __dirname + '/../../src/components/index.js',
+	},
 }
 
 const Reg = new RegExp('Templates', 'g')
@@ -29,6 +29,18 @@ if (!options[type]) throw new Error('type is none')
 
 let tDir = options[type].tempPath
 let gPath = options[type].path + name + '/'
+
+function mkdir(dir) {
+	dir = path.normalize(dir)
+	console.info('make folder, path:' + dir)
+	fs.existsSync(dir) || fs.mkdirSync(dir)
+}
+
+function mkfile(dir, content) {
+	dir = path.normalize(dir)
+	console.info('make folder, path:' + dir)
+	fs.writeFileSync(dir, content)
+}
 
 function generate(tempDir, genPath) {
 	mkdir(genPath)
@@ -55,25 +67,16 @@ function generate(tempDir, genPath) {
 	})
 }
 
-function mkdir(dir) {
-	dir = path.normalize(dir)
-	console.info('make folder, path:' + dir)
-	fs.existsSync(dir) || fs.mkdirSync(dir)
-}
-
-function mkfile(dir, content) {
-	dir = path.normalize(dir)
-	console.info('make folder, path:' + dir)
-	fs.writeFileSync(dir, content)
-}
-
 function writeFile(t) {
 	const fileIndexPath = options[t].index
 	const isFile = fs.statSync(fileIndexPath)
 	if (t === 'r') {
 		const indexContents = isFile ? fs.readFileSync(fileIndexPath).toString() : ''
-		const c = indexContents.split('// 页面结束')
+		let c = indexContents.split('// 页面结束')
 		c.splice(1, 0, 'import ' + name + ' from \'./' + name + '\'\n// 页面结束')
+		c = c.join('')
+		c = c.split('}\n')
+		c.splice(1, 0, '\t' + name + ',\n}\n')
 		fs.writeFileSync(fileIndexPath, c.join(''))
 	}
 	if (t === 'c') {

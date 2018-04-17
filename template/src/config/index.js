@@ -3,5 +3,5 @@ import routers from './Routers'
 
 export {
 	vuex,
-	routers
+	routers,
 }

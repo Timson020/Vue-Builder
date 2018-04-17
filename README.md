@@ -1,4 +1,4 @@
-# TemplateForVue 1.0.0
+# Vue-Builder 1.0.2
 
 这个是一个定制版的模版
 
@@ -28,7 +28,7 @@ npm install vue-cli -g
 
 初始化模版
 ```
-vue init Timson020/Vue-Bulider ProjectName
+vue init Timson020/Vue-Builder ProjectName
 ```
 
 ```

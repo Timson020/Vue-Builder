@@ -21,5 +21,5 @@ export default {
 	routes,
 	mode: 'history',
 	scrollBehavior,
-	base: '/'
+	base: '/',
 }
