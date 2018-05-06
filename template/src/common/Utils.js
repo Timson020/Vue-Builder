@@ -1,8 +1,3 @@
-const utils = {
-	// 请求
-	ajax,
-}
-
 async function ajax(url, body = {}, method = 'post') {
 	let _res
 
@@ -17,6 +12,11 @@ async function ajax(url, body = {}, method = 'post') {
 		return { code: 400, data: null, msg: err }
 	}
 	return { code: 200, data: _res, msg: '' }
+}
+
+const utils = {
+	// 请求
+	ajax,
 }
 
 export default utils

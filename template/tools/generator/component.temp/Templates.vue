@@ -8,6 +8,10 @@
 	import {  } from '@/common'
 	import {  } from './module'
 
+	import watch from './watch'
+	import computed from './computed'
+	import filters from './filters'
+
 	export default{
 		name: 'Templates',
 		data() {
@@ -21,11 +25,11 @@
 		// 函数
 		methods: {},
 		// 监听
-		watch: {},
+		watch,
 		// 计算
-		computed: {},
+		computed,
 		// 过滤
-		filters: {}
+		filters,
 	}
 </script>
 

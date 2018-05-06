@@ -5,6 +5,9 @@
 </template>
 
 <script type="text/javascript">
+	import watch from './watch'
+	import computed from './computed'
+	import filters from './filters'
 	import {  } from './components'
 	import {  } from './module'
 
@@ -21,11 +24,11 @@
 		// 函数
 		methods: {},
 		// 监听
-		watch: {},
+		watch,
 		// 计算
-		computed: {},
+		computed,
 		// 过滤
-		filters: {},
+		filters,
 	}
 </script>
 

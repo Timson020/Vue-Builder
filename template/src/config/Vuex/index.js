@@ -4,11 +4,11 @@ import getters from './Getters'
 import actions from './Actions'
 import createPersistedState from 'vuex-persistedstate'
 
-const setHandle = (key, state) => localStorage.setItem(key, JSON.stringify(state))
+const setHandle = (key, state) => sessionStorage.setItem(key, JSON.stringify(state))
 
 const getHandle = (key) => {
-	if (!localStorage[key]) { return {} }
-	return JSON.parse(localStorage[key])
+	if (!sessionStorage[key]) { return {} }
+	return JSON.parse(sessionStorage[key])
 }
 
 export default {
@@ -17,7 +17,7 @@ export default {
 	getters,
 	actions,
 	plugins: [createPersistedState({
-		storage: localStorage,
+		storage: sessionStorage,
 		getState: getHandle,
 		setState: setHandle,
 	})]
