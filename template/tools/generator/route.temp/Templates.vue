@@ -5,11 +5,11 @@
 </template>
 
 <script type="text/javascript">
-	import watch from './watch'
-	import computed from './computed'
-	import filters from './filters'
+	import * as watch from './watch'
+	import * as computed from './computed'
+	import * as filters from './filters'
+	import * as methods from './module'
 	import {  } from './components'
-	import {  } from './module'
 
 	export default{
 		name: 'Templates',
@@ -22,7 +22,7 @@
 		// 组件
 		components: {},
 		// 函数
-		methods: {},
+		methods,
 		// 监听
 		watch,
 		// 计算

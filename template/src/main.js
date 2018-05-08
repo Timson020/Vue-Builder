@@ -25,5 +25,5 @@ router.afterEach(afterEach)
 
 new Vue({
 	router,
-	store
+	store,
 }).$mount('#app')

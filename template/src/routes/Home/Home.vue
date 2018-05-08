@@ -6,10 +6,10 @@
 
 <script type="text/javascript">
 	import {  } from './components'
-	import {  } from './module'
-	import watch from './watch'
-	import computed from './computed'
-	import filters from './filters'
+	import * as methods from './module'
+	import * as watch from './watch'
+	import * as computed from './computed'
+	import * as filters from './filters'
 
 	export default{
 		name: 'Home',
@@ -22,7 +22,7 @@
 		// 组件
 		components: {},
 		// 函数
-		methods: {},
+		methods,
 		// 监听
 		watch,
 		// 计算
