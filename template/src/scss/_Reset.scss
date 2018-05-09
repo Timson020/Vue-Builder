@@ -38,6 +38,8 @@ input,button{
 img{
 	vertical-align: middle;
 	border: none;
+	point-event: none;
+	touch-action: none;
 };
 
 a{

@@ -17,6 +17,7 @@ export default {
 	getters,
 	actions,
 	plugins: [createPersistedState({
+		key: '{{name}}',
 		storage: sessionStorage,
 		getState: getHandle,
 		setState: setHandle,

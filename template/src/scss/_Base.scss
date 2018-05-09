@@ -8,37 +8,6 @@
 /**
  * mixin
  */
-@mixin slide_move(){
-	.arrow {
-		position: absolute;
-		width: 42.5px;
-		height: 20px;
-		left: 50%;
-		margin-left: -21.25px;
-		bottom: 10px;
-		display: block;
-		z-index: 999;
-		-webkit-animation-fill-mode: both;
-		-webkit-animation: rubberBand 1s linear infinite;
-		-webkit-backface-visibility: hidden;
-		&:before {
-			@include transform(rotateZ(-30deg));
-		}
-		&:after{
-			@include transform(rotateZ(30deg));
-			left: 16px;
-		}
-		&:before,&:after{
-			content: "";
-			display: inline-block;
-			width: 25px;
-			height: 6px;
-			background-color: #55ADCE;
-			border-radius: 3px;
-			position: absolute;
-		}
-	}
-};
 @mixin transform($what){
 	transform:$what;
 	-webkit-transform:$what;
@@ -65,13 +34,18 @@
 	height:$height;
 };
 
-@mixin TimsonBaseClass(){
+@mixin _Base(){
+	.hide{
+	  display: none;
+	};
+	.block, .show{
+	  display: block;
+	};
 	.flex{
 		display: flex;
 	}
 	.block{
 		display: block;
-		margin: 4px auto;
 	};
 	.inline-block{
 		display: inline-block;
@@ -103,56 +77,6 @@
 		text-overflow: ellipsis;
 	  white-space: nowrap;
 	};
-	.fixed{
-		position: fixed;
-	}
-	.fixed-top{
-		@extend .fixed;
-		top: 0;
-		left: 0;
-		margin: 6px auto 2px;
-	};
-	.fixed-bottom{
-		@extend .fixed;
-		bottom: 0;
-		left: 0;
-		margin: 6px auto 2px;
-	};
-	.hide{
-	  display: none;
-	};
-	.show{
-	  display: block;
-	};
-	.btn{
-		padding: 10px 14px;
-		@extend .inline-block;
-	};
-	.list{
-		padding: 6px 8px;
-	};
-	.positionCenterV{
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-	};
-	.positionCenterH{
-		position: absolute;
-		left: 0;
-		right: 0;
-		margin: auto;
-	};
-	.positionCenter_1{
-		@extend .positionCenterV;
-		@extend .positionCenterH;
-	};
-	.positionCenter_2{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include transform(translate(-50%,-50%));
-	};
 };
 
 /**
@@ -160,7 +84,7 @@
  */
 %resetFont{
 	font:{
-		size:100%;
+		size: 16px;
 		family:'Microsoft YaHei','Arial','Helvetica','Tahoma';
 	}
 };

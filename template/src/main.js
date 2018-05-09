@@ -21,6 +21,11 @@ function afterEach(transition) {
 	}
 }
 
+function beforeEach(to, from, next) {
+	next()
+}
+
+router.beforeEach(beforeEach)
 router.afterEach(afterEach)
 
 new Vue({
