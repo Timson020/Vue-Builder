@@ -7,7 +7,7 @@
 # Author: {{author}}
 
 # 使用框架
- vue + vue-router + vue-resource + vuex
+ vue + vue-router + vue-resource + vuex + immutable
 
 # 简单的目录说明
 - src（源码文件）
