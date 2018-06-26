@@ -1,4 +1,4 @@
-# Vue-Builder 1.0.3
+# Vue-Builder 1.0.4
 
 这个是一个定制版的模版
 
@@ -13,6 +13,7 @@
 - vue-router
 - vue-resource
 - vuex-persistedstate
+- immutable
 - webpack
 - eslint
 - babel
