@@ -37,7 +37,7 @@
     "sass-loader": "6.0.6",
     "style-loader": "0.20.1",
     "vue-loader": "14.0.3",
-    "vue-template-compiler": "2.5.13",
+    "vue-template-compiler": "2.5.16",
     "webpack": "3.12.0",
     "webpack-dev-server": "2.11.2"
   }
