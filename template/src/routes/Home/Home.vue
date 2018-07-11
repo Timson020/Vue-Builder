@@ -5,11 +5,11 @@
 </template>
 
 <script type="text/javascript">
-	import {  } from './components'
+	// import * as watch from './watch'
+	// import * as computed from './computed'
+	// import * as filters from './filters'
 	import * as methods from './module'
-	import * as watch from './watch'
-	import * as computed from './computed'
-	import * as filters from './filters'
+	import {  } from './components'
 
 	export default{
 		name: 'Home',
@@ -24,11 +24,11 @@
 		// 函数
 		methods,
 		// 监听
-		watch,
+		watch: {},
 		// 计算
-		computed,
+		computed: {},
 		// 过滤
-		filters,
+		filters: {},
 	}
 </script>
 

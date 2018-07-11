@@ -8,9 +8,9 @@
 	import {  } from '@/common'
 
 	import * as methods from './module'
-	import * as watch from './watch'
-	import * as computed from './computed'
-	import * as filters from './filters'
+	// import * as watch from './watch'
+	// import * as computed from './computed'
+	// import * as filters from './filters'
 
 	export default{
 		name: 'Templates',
@@ -25,11 +25,11 @@
 		// 函数
 		methods,
 		// 监听
-		watch,
+		watch: {},
 		// 计算
-		computed,
+		computed: {},
 		// 过滤
-		filters,
+		filters: {},
 	}
 </script>
 

@@ -8,7 +8,7 @@ var isProd = process.env.NODE_ENV === 'production'
 module.exports = {
 	entry: {
 		build: './src/main.js',
-		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate'],
+		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate', 'immutable'],
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
@@ -24,7 +24,7 @@ module.exports = {
 					'scss': 'vue-style-loader!css-loader!sass-loader',
 					'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
 				},
-			}
+			},
 		}, {
 			test: /\.js$/,
 			loader: 'babel-loader',
@@ -86,11 +86,11 @@ if (isProd) {
 				removeComments: true,
 				collapseWhitespace: true,
 				removeAttributeQuotes: true,
-			}
-		})
+			},
+		}),
 	])
 } else {
 	module.exports.plugins = (module.exports.plugins || []).concat([
-		new webpack.HotModuleReplacementPlugin()
-	])	
+		new webpack.HotModuleReplacementPlugin(),
+	])
 }

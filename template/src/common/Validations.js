@@ -6,7 +6,7 @@ function number(num = '', max, min = 1) {
 
 // 手机号码校验
 function phone(phone = '') {
-	if (/^[1][358][0-9]{9}$/ig.test(phone)) return true
+	if (/^[1][3578][0-9]{9}$/ig.test(phone)) return true
 	return false
 }
 

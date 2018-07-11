@@ -1,17 +1,16 @@
 const services = {}
 
 // dev
-const host = 'http://www.baidu.com'
+const host = 'http://www.baidu.com:9090/'
+
 // release
 // const host = '/'
-const port = ''
 
 const userInfix = 'user/'
 const commonInfix = 'common/'
 
-services = {
-	signIn: `${host}${port}/${commonInfix}signIn`,
-	signUp: `${host}${port}/${commonInfix}signUp`,
-}
+services.signin = `${host}${commonInfix}signIn`
+services.signup = `${host}${commonInfix}signUp`
+services.getuserinfo = `${host}${userInfix}getuserinfo`
 
 export default services
