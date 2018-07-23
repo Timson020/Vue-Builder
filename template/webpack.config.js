@@ -1,96 +1,160 @@
-var path = require('path')
-var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var htmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-var isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
-module.exports = {
+// 开发环境下的端口
+const port = 9000
+
+// 生产环境的页面地址
+const host = './'
+
+// 默认配置
+const defaultconfig = {
+	target: 'web',
+	devtool: '#eval-source-map',
+	resolve: {
+		extensions: ['.js', '.json', '.vue', '.scss', '.css'],
+		alias: {
+			'@': path.resolve(__dirname, './src'),
+			'vue$': 'vue/dist/vue.esm.js',
+		}
+	},
+	performance: {
+		hints: false,
+	},
+}
+
+// 开发环境配置
+const developmentconfig = {
+	mode: 'development',
 	entry: {
-		build: './src/main.js',
-		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate', 'immutable'],
+		app: './src/main.js',
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		publicPath: isProd ? 'http://www.xxxx.com/' : '/dist/',
-		filename: 'js/[name].js?[hash]',
+		publicPath: './',
+		filename: './js/[name].js?[hash]',
 	},
 	module: {
 		rules: [{
 			test: /\.vue$/,
 			loader: 'vue-loader',
+		}, {
+			test: /\.js$/,
+			loader: 'babel-loader',
+			exclude: /node_modules/
+		}, {
+			test: /\.css$/,
+			loader: 'style-loader!css-loader'
+		}, {
+			test: /\.(scss||sass)$/,
+			loader: 'style-loader!css-loader!sass-loader'
+		}, {
+			test: /\.(eot|ttf|woff|woff2)$/,
+			loader: 'file-loader',
+		}, {
+			test: /\.(png|jpg|gif|svg)$/,
+			loader: 'file-loader',
 			options: {
-				loaders: {
-					'scss': 'vue-style-loader!css-loader!sass-loader',
-					'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
-				},
-			},
+				name: '[name].[ext]?[hash]'
+			}
+		}]
+	},
+	serve: {
+		host: 'localhost',
+		port: port,
+		clipboard: true,
+		hotClient: true,
+		reload: false,
+		logLevel: 'info',
+		logTime: true,
+	},
+	plugins: [
+		new VueLoaderPlugin(),
+	],
+}
+
+// 生产环境打包配置
+const releaseconfig = {
+	mode: 'production',
+	devtool: '',
+	entry: {
+		app: './src/main.js',
+		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate', 'immutable'],
+	},
+	output: {
+		path: path.resolve(__dirname, './dist'),
+		publicPath: host,
+		filename: 'src/js/[name].js?[hash]',
+	},
+	module: {
+		rules: [{
+			test: /\.vue$/,
+			loader: 'vue-loader',
 		}, {
 			test: /\.js$/,
 			loader: 'babel-loader',
 			exclude: /node_modules/,
 		}, {
 			test: /\.css$/,
-			loader: !isProd ? 'style-loader!css-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+			loader: MiniCssExtractPlugin.loader,
 		}, {
 			test: /\.(scss|sass)$/,
-			loader: !isProd ? 'style-loader!css-loader!sass-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' }),
+			use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 		}, {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'font/[name].[ext]?[hash]',
+				name: 'src/font/[name].[ext]?[hash]',
 			},
 		}, {
 			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'img/[name].[ext]?[hash]',
+				name: 'src/img/[name].[ext]?[hash]',
 			},
 		}],
 	},
-	resolve: {
-		extensions: ['.js', '.json', '.vue', '.scss', '.css'],
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-			'vue$': 'vue/dist/vue.esm.js',
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					name: "vendor",
+					chunks: "initial",
+					minChunks: 2,
+				},
+			},
 		},
 	},
-	devServer: {
-		historyApiFallback: true,
-		noInfo: true,
-		hot: true,
-		inline: true,
-	},
-	performance: {
-		hints: false,
-	},
-	devtool: '#eval-source-map',
-}
-
-if (isProd) {
-	module.exports.devtool = ''
-	module.exports.plugins = (module.exports.plugins || []).concat([
+	plugins: [
+		// 最新版vue-loader必须添加
+		new VueLoaderPlugin(),
+		// 插件中的全局变量
 		new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
-		new webpack.optimize.UglifyJsPlugin({ sourceMap: true, compress: { warnings: false } }),
-		new webpack.optimize.CommonsChunkPlugin({ names: ['vendor'] }),
+		// loder里面的配置
 		new webpack.LoaderOptionsPlugin({ minimize: true }),
-		new ExtractTextPlugin('css/style.css'),
+		// css
+		new MiniCssExtractPlugin({ filename: 'src/css/style.css', chunkFilename: "[id].css" }),
+		// html
 		new htmlWebpackPlugin({
 			title: '{{name}}',
-			filename: 'index.html', //通过模板生成的文件名
-			template: 'index.html', //模板路径
-			inject: 'body', //是否自动在模板文件添加 自动生成的js文件链接
+			filename: 'index.html', // 通过模板生成的文件名
+			template: 'index.html', // 模板路径
+			inject: 'body', // 是否自动在模板文件添加 自动生成的js文件链接
 			hash: true,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
 				removeAttributeQuotes: true,
-			},
-		}),
-	])
-} else {
-	module.exports.plugins = (module.exports.plugins || []).concat([
-		new webpack.HotModuleReplacementPlugin(),
-	])
+			}
+		})
+	],
 }
+
+const config = Object.assign(defaultconfig, isProd ? releaseconfig : developmentconfig)
+
+module.exports = config

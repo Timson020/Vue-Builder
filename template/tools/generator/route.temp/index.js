@@ -1,3 +1,3 @@
-import Templates from './Templates'
+import Templates from './Page'
 
 export default Templates

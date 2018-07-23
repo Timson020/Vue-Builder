@@ -1,15 +1,10 @@
-# Vue-Builder 1.0.4
+# Vue-Builder 2.0.0
 
 这个是一个定制版的模版
 
 ## 技术栈
 - vue
 - vuex
-	- state
-	- getters
-	- mutations
-	- actions
-	- modules
 - vue-router
 - vue-resource
 - vuex-persistedstate
@@ -20,21 +15,31 @@
 - es2015
 - async/await
 
-## 使用方法
+## Install
 
 ```
+# 如果已经安装了可以忽视
 npm install vue-cli -g
-```
->如果已经安装了可以忽视
 
-初始化模版
-```
+#
 vue init Timson020/Vue-Builder ProjectName
 ```
 
+## Usage
 ```
+# install the package
 npm install
+
+# dev
 npm run dev
+
+# release
 npm run build
+
+# create the router page
+npm run r LogIn
+
+# create the global component
+npm run c Button
 ```
 

@@ -1,3 +1,3 @@
-import Home from './Home'
+import Home from './Page'
 
 export default Home

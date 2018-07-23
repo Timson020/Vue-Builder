@@ -11,16 +11,19 @@
 
 # 简单的目录说明
 - src（源码文件）
+	- assets（图片资源文件）
 	- common（工具库）
 	- components（项目组件）
 	- reducers（reducer）
 	- routes（页面）
-	- App.js（入口文件）
+	- main.js（入口文件）
 - tools（工具库）
-- node_modules （第三方依赖）
 - package.json （配置文件）
+- webpack.config.js（webpack配置文件，包含生产环境，开发环境）
+- .babelrc （babel 解析器）
+- .editorconfig（编辑器配置文件）
+- .eslintignore （eslint 代码 规范 忽略文件）
 - .eslintrc （eslint 代码 规范）
-- .babelrc （解析器）
 - .gitignore （git 忽略文件）
 
 
