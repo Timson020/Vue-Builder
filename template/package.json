@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "author": "{{author}}",
   "private": true,
+  "engines": {
+		"node": ">=8.11.3"
+	},
   "scripts": {
     "r": "babel-node ./tools/generator/index.js r",
     "c": "babel-node ./tools/generator/index.js c",
