@@ -4,19 +4,15 @@
 # {{name}}
 > {{description}}
 
-# Author: {{author}}
+## Author: {{author}}
 
-# 使用框架
+## 使用框架
  vue + vue-router + vue-resource + vuex + immutable
 
-# 简单的目录说明
+## 目录结构说明
+
+### 简单的目录说明
 - src（源码文件）
-	- assets（图片资源文件）
-	- common（工具库）
-	- components（项目组件）
-	- reducers（reducer）
-	- routes（页面）
-	- main.js（入口文件）
 - tools（工具库）
 - package.json （配置文件）
 - webpack.config.js（webpack配置文件，包含生产环境，开发环境）
@@ -26,20 +22,35 @@
 - .eslintrc （eslint 代码 规范）
 - .gitignore （git 忽略文件）
 
+### src目录说明
 
-# 项目命令说明
+|名称|说明|
+|:--:|:--:|
+|assets|图片资源文件|
+|common|工具库|
+|components|项目全局组件|
+|config|配置vuex,router|
+|routes|页面|
+|scss|Scss源码|
+|main.js|入口文件|
+
+## 项目命令说明
 
 ```
-npm run dev (开启本地开发模式)
+# (开启本地开发模式)
+npm run dev 
 
-npm run build (打包生产环境源码)
+# (打包生产环境源码)
+npm run build 
 
-npm run c XXX （生成组件模版）
+# (生成组件模版)
+npm run c XXX 
 
-npm run r XXX （生成路由页面模版）
+# (生成路由页面模版)
+npm run r XXX 
 ```
 
-# 简要规范说明
+## 简要规范说明
 - 模版生成规范
 	- 生成组件都必须要首字母大写
 	- 生成页面都必须要首字母大写

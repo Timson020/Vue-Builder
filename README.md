@@ -1,19 +1,21 @@
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) 
+[![npm](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+
 # Vue-Builder 2.0.0
 
-这个是一个定制版的模版
+>这个是一个定制版的模版
 
 ## 技术栈
-- vue
-- vuex
-- vue-router
-- vue-resource
-- vuex-persistedstate
-- immutable
-- webpack
-- eslint
-- babel
-- es2015
-- async/await
+- [X] vue
+- [X] vuex
+- [X] vue-router
+- [X] vue-resource
+- [X] vuex-persistedstate
+- [X] immutable
+- [X] webpack
+- [X] eslint
+- [X] babel
 
 ## Install
 
@@ -21,7 +23,7 @@
 # 如果已经安装了可以忽视
 npm install vue-cli -g
 
-#
+# 初始化模版
 vue init Timson020/Vue-Builder ProjectName
 ```
 
