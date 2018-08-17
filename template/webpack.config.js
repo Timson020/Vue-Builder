@@ -46,13 +46,13 @@ const developmentconfig = {
 		}, {
 			test: /\.js$/,
 			loader: 'babel-loader',
-			exclude: /node_modules/
+			exclude: /node_modules/,
 		}, {
 			test: /\.css$/,
-			loader: 'style-loader!css-loader'
+			loader: ['style-loader', 'css-loader'],
 		}, {
 			test: /\.(scss||sass)$/,
-			loader: 'style-loader!css-loader!sass-loader'
+			loader: ['style-loader', 'css-loader', 'sass-loader'],
 		}, {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
@@ -60,8 +60,8 @@ const developmentconfig = {
 			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
-				name: '[name].[ext]?[hash]'
-			}
+				name: '[name].[ext]?[hash]',
+			},
 		}]
 	},
 	serve: {
@@ -101,7 +101,7 @@ const releaseconfig = {
 			exclude: /node_modules/,
 		}, {
 			test: /\.css$/,
-			loader: MiniCssExtractPlugin.loader,
+			loader: [MiniCssExtractPlugin.loader, 'css-loader'],
 		}, {
 			test: /\.(scss|sass)$/,
 			use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
