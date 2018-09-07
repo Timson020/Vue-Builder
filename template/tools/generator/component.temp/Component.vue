@@ -6,7 +6,8 @@
 
 <script type="text/javascript">
 	import {  } from '@/common'
-
+	import data from './data'
+	import props from './props'
 	import * as methods from './module'
 	// import * as watch from './watch'
 	// import * as computed from './computed'
@@ -14,12 +15,9 @@
 
 	export default{
 		name: 'Templates',
-		data() {
-			const _res = {}
-			return _res
-		},
+		data,
 		// 属性
-		props: [],
+		props,
 		// 组件
 		components: {},
 		// 函数

@@ -1,6 +1,5 @@
 async function ajax(url, body = {}, method = 'post') {
 	let _res
-
 	try {
 		_res = await this.$http({
 			method: method,
