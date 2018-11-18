@@ -20,6 +20,7 @@ const defaultconfig = {
 		extensions: ['.js', '.json', '.vue', '.scss', '.css'],
 		alias: {
 			'@': path.resolve(__dirname, './src'),
+			'@img': path.resolve(__dirname, './src/assets'),
 			'vue$': 'vue/dist/vue.esm.js',
 		}
 	},
@@ -56,22 +57,25 @@ const developmentconfig = {
 		}, {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
+			options: {
+				name: '[name].[ext]?[hash]',
+				publicPath: '/',
+			},
 		}, {
 			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
 				name: '[name].[ext]?[hash]',
+				publicPath: '/',
 			},
 		}]
 	},
-	serve: {
-		host: 'localhost',
+	devServer: {
+		host: '0.0.0.0',
 		port: port,
-		clipboard: true,
-		hotClient: true,
-		reload: false,
-		logLevel: 'info',
-		logTime: true,
+		clientLogLevel: 'info',
+		historyApiFallback: true,
+		hot: true,
 	},
 	plugins: [
 		new VueLoaderPlugin(),
@@ -109,13 +113,17 @@ const releaseconfig = {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'src/font/[name].[ext]?[hash]',
+				name: '[name].[ext]?[hash]',
+				outputPath: './src/font/',
+				publicPath: `${host}/src/font/`,
 			},
 		}, {
 			test: /\.(png|jpg|gif|svg)$/,
 			loader: 'file-loader',
 			options: {
-				name: 'src/img/[name].[ext]?[hash]',
+				name: '[name].[ext]?[hash]',
+				outputPath: './src/img/',
+				publicPath: `${host}/src/img/`,
 			},
 		}],
 	},
