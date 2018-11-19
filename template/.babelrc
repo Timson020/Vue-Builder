@@ -1,11 +1,17 @@
 {
 	"presets": [
-		["env", "stage-3"]
+		[
+			"@babel/preset-env",
+			{
+				"targets": {
+					"browsers": ["last 2 versions", "ie >= 7"],
+					"esmodules": true,
+				}
+			}
+		]
 	],
 	"plugins": [
-		"transform-async-to-generator", ["transform-runtime", {
-			"polyfill": false,
-			"regenerator": true
-		}]
+		"@babel/transform-async-to-generator",
+		"@babel/plugin-transform-runtime",
 	]
 }

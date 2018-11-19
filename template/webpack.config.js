@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === 'production'
 const port = 9000
 
 // 生产环境的页面地址
-const host = './'
+const host = '/'
 
 // 默认配置
 const defaultconfig = {
@@ -36,9 +36,9 @@ const developmentconfig = {
 		app: './src/main.js',
 	},
 	output: {
-		path: path.resolve(__dirname, './dist'),
-		publicPath: './',
-		filename: './js/[name].js?[hash]',
+		filename: '[name].js?[hash]',
+		path: path.resolve(__dirname, './dist/'),
+		publicPath: '/dist/js/',
 	},
 	module: {
 		rules: [{
@@ -79,6 +79,7 @@ const developmentconfig = {
 	},
 	plugins: [
 		new VueLoaderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 	],
 }
 
@@ -91,9 +92,9 @@ const releaseconfig = {
 		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate', 'immutable'],
 	},
 	output: {
+		filename: 'src/js/[name].js?[hash]',
 		path: path.resolve(__dirname, './dist'),
 		publicPath: host,
-		filename: 'src/js/[name].js?[hash]',
 	},
 	module: {
 		rules: [{
@@ -149,7 +150,7 @@ const releaseconfig = {
 		new MiniCssExtractPlugin({ filename: 'src/css/style.css', chunkFilename: "[id].css" }),
 		// html
 		new htmlWebpackPlugin({
-			title: '{{name}}',
+			title: 'demo',
 			filename: 'index.html', // 通过模板生成的文件名
 			template: 'index.html', // 模板路径
 			inject: 'body', // 是否自动在模板文件添加 自动生成的js文件链接
