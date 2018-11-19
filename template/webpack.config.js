@@ -89,7 +89,7 @@ const releaseconfig = {
 	devtool: '',
 	entry: {
 		app: './src/main.js',
-		vendor: ['vue', 'vuex', 'vue-resource', 'vue-router', 'vuex-persistedstate', 'immutable'],
+		vendor: ['vue', 'vuex', 'axios', 'vue-router', 'vuex-persistedstate', 'immutable'],
 	},
 	output: {
 		filename: 'src/js/[name].js?[hash]',
