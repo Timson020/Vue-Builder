@@ -8,71 +8,71 @@
 /**
  * mixin
  */
-@mixin transform($what){
-	transform:$what;
-	-webkit-transform:$what;
-	-moz-transform:$what;
-	-o-transform:$what;
-	-ms-transform:$what;
+@mixin transform($what) {
+	transform: $what;
+	-webkit-transform: $what;
+	-moz-transform: $what;
+	-o-transform: $what;
+	-ms-transform: $what;
 };
-@mixin transition($what){
-	transition:$what;
-	-webkit-transition:$what;
-	-moz-transition:$what;
-	-o-transition:$what;
-	-ms-transition:$what;
+@mixin transition($what) {
+	transition: $what;
+	-webkit-transition: $what;
+	-moz-transition: $what;
+	-o-transition: $what;
+	-ms-transition: $what;
 };
-@mixin prefix($name,$value){
-	#{$name} : $value;
-	-webkit-#{$name} : $value;
-	-moz-#{$name} : $value;
-	-o-#{$name} : $value;
-	-ms-#{$name} : $value;
+@mixin prefix($name, $value) {
+	#{$name}: $value;
+	-webkit-#{$name}: $value;
+	-moz-#{$name}: $value;
+	-ms-#{$name}: $value;
+	-o-#{$name}: $value;
 };
-@mixin width_height($width:100%,$height:auto){
-	width:$width;
-	height:$height;
+@mixin width_height($width: 100%, $height: auto) {
+	width: $width;
+	height: $height;
 };
 
-@mixin _Base(){
-	.hide{
+@mixin _Base() {
+	.hide {
 	  display: none;
 	};
-	.block, .show{
+	.block, .show {
 	  display: block;
 	};
-	.flex{
+	.flex {
 		display: flex;
 	}
-	.block{
+	.block {
 		display: block;
 	};
-	.inline-block{
+	.inline-block {
 		display: inline-block;
 		vertical-align: middle;
 	};
-	.border-box{
+	.border-box {
 		box-sizing: border-box;
 	};
-	.content-box{
+	.content-box {
 		box-sizing: content-box;
 	};
-	.text-left{
+	.text-left {
 	  text-align: left;
 	};
-	.text-right{
+	.text-right {
 	  text-align: right;
 	};
-	.text-center{
+	.text-center {
 	  text-align: center;
 	};
-	.text-justify{
+	.text-justify {
 	  text-align: justify;
 	};
-	.text-break{
+	.text-break {
 	  overflow-wrap: break-word;
 	};
-	.text-nowrap{
+	.text-nowrap {
 		overflow: hidden;
 		text-overflow: ellipsis;
 	  white-space: nowrap;

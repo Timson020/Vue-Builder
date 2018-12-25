@@ -1,7 +1,7 @@
 @charset 'utf-8';
 @import "_Base";
 
-html,body, #app{
+html,body, #app {
 	$windowSize: 100%;
 	
 	width: $windowSize;
@@ -18,7 +18,7 @@ html,body, #app{
 $flex-dir: column,row;
 @each $item in $flex-dir {
 	.flex-#{$item} {
-		flex-direction:$item;
+		flex-direction: $item;
 	}
 }
 // 原子类结束

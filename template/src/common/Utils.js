@@ -5,7 +5,7 @@ async function fetch({ url, body = {}, method = 'post' }) {
 		axios({
 			url,
 			method,
-			headers: { 'content-type': 'application/json; ' },
+			headers: { 'content-type': 'application/json;' },
 			data: body,
 			timeout: 15000,
 		}).then((res) => {

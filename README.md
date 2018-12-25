@@ -1,6 +1,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Timson020/Vue-Builder/pulls)
 
-# Vue-Builder 2.0.0
+# Vue-Builder 2.0.1
 
 >这个是一个定制版的模版
 
@@ -10,7 +10,7 @@
 - [X] vue-router
 - [X] vue-resource
 - [X] vuex-persistedstate
-- [X] immutable
+- [ ] immutable
 - [X] webpack
 - [X] eslint
 - [X] babel

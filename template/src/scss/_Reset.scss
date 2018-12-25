@@ -1,5 +1,5 @@
-html,body{
-	font:{
+html, body {
+	font: {
 		size: 16px;
 		family: 'Microsoft YaHei','Arial','Helvetica','Tahoma';
 	};
@@ -11,41 +11,41 @@ ul,ol,li,
 header,footer,main,address,menu,nav,
 button,input,output,
 aside,details,figcaption,figure,hgroup
-summary,audio,video{
+summary,audio,video {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 };
 
-div,article,section,aside,details,figcaption,figure,header,footer,hgroup,main,menu,nav,summary{
+div,article,section,aside,details,figcaption,figure,header,footer,hgroup,main,menu,nav,summary {
   display: block;
 };
 
-input,button{
+input, button {
 	-webkit-appearance: none;
 	border: 1px solid gray;
 	border-radius: 6px;
-	vertical-align:middle;
+	vertical-align: middle;
 	outline: none;
-	&:focus{
+	&:focus {
 		-webkit-appearance: none;
 		outline: none;
 	};
 };
 
-img{
+img {
 	vertical-align: middle;
 	border: none;
 	point-event: none;
 	touch-action: none;
 };
 
-a{
+a {
 	color: inherit;
 	text-decoration: none;
 };
 
-li{
+li {
 	list-style: none;
 };

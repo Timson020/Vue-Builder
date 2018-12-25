@@ -1,14 +1,14 @@
 @each $var in [320, 360, 375, 400, 411, 414, 480, 540, 600, 640, 768, 800, 960] {
-  @media only screen and (min-width: $var + px), only screen and (min-device-width: $var + px){
-    html,body{
-      font:{
+  @media only screen and (min-width: $var + px), only screen and (min-device-width: $var + px) {
+    html,body {
+      font: {
         size: ($var / 375) * 100 + px;
       }
     }
   }
 }
 
-html, body{
+html, body {
   margin: 0 auto;
   max-width: 960px;
 }

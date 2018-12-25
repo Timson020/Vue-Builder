@@ -22,7 +22,7 @@ const defaultconfig = {
 			'@': path.resolve(__dirname, './src'),
 			'@img': path.resolve(__dirname, './src/assets'),
 			'vue$': 'vue/dist/vue.esm.js',
-		}
+		},
 	},
 	performance: {
 		hints: false,
@@ -68,7 +68,7 @@ const developmentconfig = {
 				name: '[name].[ext]?[hash]',
 				publicPath: '/',
 			},
-		}]
+		}],
 	},
 	devServer: {
 		host: '0.0.0.0',
@@ -132,8 +132,8 @@ const releaseconfig = {
 		splitChunks: {
 			cacheGroups: {
 				commons: {
-					name: "vendor",
-					chunks: "initial",
+					name: 'vendor',
+					chunks: 'initial',
 					minChunks: 2,
 				},
 			},
@@ -147,7 +147,7 @@ const releaseconfig = {
 		// loder里面的配置
 		new webpack.LoaderOptionsPlugin({ minimize: true }),
 		// css
-		new MiniCssExtractPlugin({ filename: 'src/css/style.css', chunkFilename: "[id].css" }),
+		new MiniCssExtractPlugin({ filename: 'src/css/style.css', chunkFilename: '[id].css' }),
 		// html
 		new htmlWebpackPlugin({
 			title: 'demo',
@@ -159,8 +159,8 @@ const releaseconfig = {
 				removeComments: true,
 				collapseWhitespace: true,
 				removeAttributeQuotes: true,
-			}
-		})
+			},
+		}),
 	],
 }
 

@@ -1,17 +1,17 @@
 {
 	"presets": [
 		[
-			"@babel/preset-env",
+			"env",
 			{
 				"targets": {
 					"browsers": ["last 2 versions", "ie >= 7"],
 					"esmodules": true,
 				}
 			}
-		]
+		], "stage-3"
 	],
 	"plugins": [
-		"@babel/transform-async-to-generator",
-		"@babel/plugin-transform-runtime",
+		"transform-async-to-generator",
+		"transform-runtime",
 	]
 }
